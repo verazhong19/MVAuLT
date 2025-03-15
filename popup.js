@@ -27,4 +27,27 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
+
+    // referenced this: https://stackoverflow.com/questions/23160600/chrome-extension-local-storage-how-to-export
+    document.addEventListener("click", (event) => {
+        if (event.target.id == "export") {
+            console.log("hi");
+
+            chrome.storage.local.get(null, function(items) { // null implies all items
+                // Convert object to a string.
+                var itemsNoImgs = items;
+                delete itemsNoImgs.image;
+                var result = JSON.stringify(items);
+
+                // TODO: remove the images from the text file
+            
+                // Save as file
+                var url = 'data:application/json;base64,' + btoa(result);
+                chrome.downloads.download({
+                    url: url,
+                    filename: 'mvalttext.json'
+                });
+            });
+        }
+    });
 });
