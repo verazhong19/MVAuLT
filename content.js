@@ -5,7 +5,6 @@ document.addEventListener("keydown", async (event) => {
       if (video && video.paused) {
         const player = document.getElementsByClassName('video-stream')[0];
         const timestamp = player.currentTime;
-        console.log(timestamp);
         const canvas = document.createElement("canvas");
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
