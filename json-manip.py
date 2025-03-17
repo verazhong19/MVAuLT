@@ -5,6 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 import io
 import sys
 
+arg = False
 # get the input filename from command line arguments
 if len(sys.argv) > 1:
     arg = True
@@ -89,4 +90,4 @@ if arg:
     video_name = input_filename.split('/')[-1].split('.')[0]
     combined_img.save(f'{video_name}.png')
 else:
-    combined_img.save(f'output-imgs/{video_name}-combined-2.png')
+    combined_img.save(f'output-imgs/{video_name}.png')
