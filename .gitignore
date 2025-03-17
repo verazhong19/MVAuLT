@@ -1,2 +1,4 @@
 exported-jsons/
 output-imgs/
+*.json
+*.png
